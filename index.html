@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAHORAT CLEAN WATER - Toza Suv Yetkazib Berish</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Waterfall&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Asosiy animatsiyalar va tugmalar uchun CSS */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+      }
+      .fade-in.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* scale-up endi faqat hover effekti uchun qoldiriladi */
+      .scale-up {
+        transition: transform 0.3s ease-in-out;
+      }
+      .scale-up:hover {
+        transform: scale(1.02); /* Kichikroq kattalashish */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Yaxshi soya */
+      }
+      .animated-heading {
+        animation: bounceIn 1s forwards;
+      }
+      @keyframes bounceIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.3);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+        70% {
+          transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* Umumiy tugmalar stillari */
+      .action-button {
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        margin-top: 15px;
+      }
+      .action-button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Popup stillari */
+      .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.3s;
+      }
+      .popup-overlay.active {
+        visibility: visible;
+        opacity: 1;
+      }
+      .popup-content {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+        max-width: 500px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transform: scale(0.8);
+        transition: transform 0.3s ease-out;
+      }
+      .popup-overlay.active .popup-content {
+        transform: scale(1);
+      }
+      .close-popup {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #333;
+      }
+
+      /* Scroll to top button */
+      .scroll-top-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        display: none; /* Hidden by default */
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+      }
+      .scroll-top-button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Dark Mode styles */
+      body.dark-mode {
+        background-color: #1a1a1a;
+        color: #f0f0f0;
+      }
+      body.dark-mode .mahorat-text-h2 h2,
+      body.dark-mode .mahorat-text-p p,
+      body.dark-mode .text-clean p,
+      body.dark-mode .water-text p,
+      body.dark-mode .footer h2,
+      body.dark-mode .footer p,
+      body.dark-mode .popup-content {
+        color: #f0f0f0 !important;
+        background-color: #2b2b2b !important;
+      }
+      body.dark-mode .popup-content {
+        border: 1px solid #444;
+      }
+      body.dark-mode .action-button,
+      body.dark-mode .scroll-top-button {
+        background-color: #6a0dad; /* Dark mode button color */
+      }
+      body.dark-mode .action-button:hover,
+      body.dark-mode .scroll-top-button:hover {
+        background-color: #4b0082;
+      }
+      /* Header rasmlari uchun endi maxsus effekt yo'q, shuning uchun .header-rgb-image stillari o'chirildi */
+    </style>
+  </head>
+  <body>
+    <div id="clear-water">
+      <div class="container">
+        <header>
+          <div class="background-video-container">
+            <video autoplay muted loop playsinline class="background-video" src="./water.mp4"></video>
+            <div class="video-overlay"></div> </div>
+          <div class="bir-header">
+            <div class="mahorat-lider">
+              <div class="mahorat-logo">
+                <img
+                  src="./photo_2025-07-22_01-07-44-removebg-preview.png"
+                  alt="MAHORAT CLEAN WATER Logo"
+                  width="75px"
+                  height="75px"
+                />
+              </div>
+              <div class="mahorat-text">
+                <a href="tel:+998998043131" class="tell"
+                  ><i class="fas fa-phone-alt"></i> +998998043131</a>
+                <a href="tel:+998981002345" class="tell"
+                  ><i class="fas fa-phone-alt"></i> +998981002345</a
+                >
+                <a
+                  href="https://t.me/xasan_3131"
+                  class="mahorat-icon"
+                  target="_blank"
+                  ><button class="action-button mt-100">
+                    <i class="fab fa-telegram-plane"></i> Bog'lanish
+                  </button></a
+                >
+              </div>
+            </div>
+            <div class="mahorat-text-h2">
+              <h2
+                style="font-size: 30px; color: black"
+                class="animated-heading"
+              >
+                100% Filtrlangan Sifatli Suv — Tozalik va Sog‘lik Manbai!
+              </h2>
+            </div>
+            <div class="mahorat-water">
+              <div
+                style="margin-left: 380px"
+                class="img-1 fade-in"
+                data-src="./photo_2025-07-22_01-07-36-removebg-preview.png"
+              >
+                <img src="./mahorat 5L.png" alt="5L Suv Idishi" width="500px" />
+              </div>
+              <div
+                style="margin-left: -380px"
+                class="img-2 fade-in"
+                data-src="./photo_2025-07-22_01-07-23-removebg-preview.png"
+              >
+                <img
+                  src="./removebg (1).png"
+
+
+                  alt="10L Suv Idishi"
+                  width="500px"
+                />
+              </div>
+              <div
+                style="margin-left: -360px; margin-top: -5px"
+                class="img-3 fade-in"
+                data-src="./photo_2025-07-22_01-07-31-removebg-preview.png"
+              >
+                <img
+                  src="./photo_2025-07-22_01-07-31-removebg-preview.png"
+                  alt="18.9L Suv Idishi"
+                  width="500px"
+                />
+              </div>
+              <div class="mahorat-text-p fade-in">
+                <h4>
+                  <p
+                  
+                    class="typer"
+                    id="main"
+                    data-words="MAHORAT-CLEAN-WATER"
+                    data-delay="100"
+                    data-deleteDelay="1000"
+                  ></p>
+                  <span class="cursor" data-owner="main"></span>
+                </h4>
+                <div>
+
+                </div>
+                <p style="font-size: 20px; color: rgb(0, 0, 0);">Bugungi kunda sog‘lom hayot tarzini tanlash — toza va sifatli
+                  suv iste'molidan boshlanadi. Biz taqdim etayotgan 100%
+                  filtrlangan suv zamonaviy texnologiyalar.</p>
+                
+                <button id="learnMoreBtn" class="action-button">
+                  Batafsil ma'lumot
+                </button>
+              </div>
+            </div>
+          </div>
+        </header>
+        <menu>
+          <div class="container-2">
+            <div class="ikta-div">
+              <div class="img-clean fade-in">
+                <img
+                  style="border-radius: 50px"
+                  src="./photo_2025-07-22_01-08-29.jpg"
+                  alt="Toza Suv Manbai"
+                  width="300px"
+                  height="400px"
+                />
+              </div>
+              <div class="text-clean fade-in">
+                <p style="font-size: 24px">
+                  100% Filtrlangan Sifatli Suv – Sog‘ligingiz Uchun Eng Toza
+                  Tanlov!
+                </p>
+                <p style="width: 430px">
+                  Bugungi kunda sog‘lom hayot tarzini tanlash — toza va sifatli
+                  suv iste'molidan boshlanadi. Biz taqdim etayotgan 100%
+                  filtrlangan suv zamonaviy texnologiyalar yordamida ko‘plab
+                  zararli moddalardan tozalangan, minerallarga boy va inson
+                  organizmi uchun foydali hisoblanadi.
+                </p>
+              </div>
+            </div>
+            <div class="menu-water" id="products-container">
+              <div class="water-1 scale-up product-item" data-id="1">
+                <div class="water-text">
+                  <p style="width: 600px; font-size: 24px">
+                    MAHORAT CLEAN WATER – 18,9L Tozalik Va Sifat!
+                  </p>
+                  <p>
+                    100% filtrlangan, minerallarga boy va tetiklantiruvchi suv
+                    endi katta hajmda! Oila va ofislar uchun qulay tanlov —
+                    MAHORAT CLEAN WATER 18,9L.💧 Har bir yutumda sog‘lik va
+                    ishonch!
+                  </p>
+                  <button
+                    class="action-button order-button"
+                    data-product="18.9L"
+                  >
+                    Buyurtma berish
+                  </button>
+                </div>
+                <div class="water-img">
+                  <img
+                    style="border-radius: 50px"
+                    src="./photo_2025-07-22_01-07-36-removebg-preview.png"
+                    alt="18.9L suv"
+                    width="400px"
+                    height="400px"
+                  />
+                </div>
+              </div>
+              <div class="water-1 scale-up product-item" data-id="2">
+                <div class="water-img">
+                  <img
+                    style="border-radius: 50px"
+                    src="./photo_2025-07-22_01-07-31-removebg-preview.png"
+                    alt="10L suv"
+
+                    width="400px"
+                    height="400px"
+                  />
+                </div>
+                <div class="water-text">
+                  <p style="width: 600px; font-size: 24px">
+                    MAHORAT CLEAN WATER – 10L Tozalik Va Sifat!
+                  </p>
+                  <p>
+                    MAHORAT CLEAN WATER – 10L Sifatli Toza Suv! Kundalik
+                    foydalanish uchun qulay hajmda, 100% filtrlangan va
+                    tetiklantiruvchi MAHORAT CLEAN WATER 10L — sog‘ligingiz
+                    uchun toza tanlov!💧 Har bir yutumda yengillik va ishonch!
+                  </p>
+                  <button class="action-button order-button" data-product="10L">
+                    Buyurtma berish
+                  </button>
+                </div>
+              </div>
+              <div
+                class="water-1 scale-up product-item card-with-effect"
+                data-id="3"
+              >
+                <div class="water-text">
+                  <p style="width: 600px; font-size: 24px">
+                    MAHORAT CLEAN WATER – 5L Tozalik Va Sifat!
+                  </p>
+                  <p>
+                    Yengil, qulay va 100% filtrlashdan o‘tgan MAHORAT CLEAN
+                    WATER 5L — uy va safarlar uchun ideal tanlov!💧 Har bir
+                    yuyumda tozalik va ishonch!
+                  </p>
+                  <button class="action-button order-button" data-product="5L">
+                    Buyurtma berish
+                  </button>
+                </div>
+                <div class="water-img">
+                  <img
+                    style="border-radius: 50px"
+                    src="./photo_2025-07-22_01-07-23-removebg-preview.png"
+                    alt="5L suv"
+                    width="400px"
+                    height="400px"
+                  />
+                </div>
+              </div>
+            </div>
+            <button
+              id="loadMoreProductsBtn"
+              class="action-button"
+              style="margin: 30px auto; display: block"
+            >
+              Ko'proq mahsulot ko'rish
+            </button>
+          </div>
+        </menu>
+        <footer class="footer">
+          <div class="footer-container">
+            <h2>MAHORAT CLEAN WATER</h2>
+            <p>💧 Tozalik bizdan, sog‘lik sizdan!</p>
+            <div class="footer-info">
+              <p>📍 Manzil: Toshkent shahri, Novoiy tumani, Mahorat koch.</p>
+              <p>📞 Aloqa: +998 99 804 31 31</p>
+              <p>📞 Aloqa: +998 98 100 23 45</p>
+              <a
+                href="https://www.instagram.com/maxorat_water?igsh=MTUxaHpzeGtyMXZwZQ=="
+                target="_blank"
+                ><img
+                  class="img-footer"
+                  src="./photo_2025-07-22_01-07-52.jpg"
+                  alt="Instagram Icon"
+                />
+                Instagram
+              </a>
+              <p>
+                📱 Telegram:
+                <a href="https://t.me/xasan_3131" target="_blank"
+                  >@MAHORATCLEANWATER</a
+                >
+              </p>
+            </div>
+            <p class="footer-note">
+              Har bir tomchida ishonch. Har bir yutumda sifat.
+            </p>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <button
+      id="toggleMode"
+      class="scroll-top-button"
+      style="background-color: #6a0dad; bottom: 80px"
+    >
+      🌙
+    </button>
+    <button id="scrollTopBtn" class="scroll-top-button">↑</button>
+
+    <div id="infoPopup" class="popup-overlay">
+      <div class="popup-content">
+        <button class="close-popup">&times;</button>
+        <h3>MAHORAT CLEAN WATER Haqida</h3>
+        <p>
+          Bizning kompaniya sizga eng yuqori sifatli filtrlangan ichimlik suvini
+          taklif etadi. Suvimiz zamonaviy texnologiyalar asosida ko‘p bosqichli
+          tozalash tizimidan o‘tkaziladi, bu esa uning tarkibini minerallarga
+          boyitib, zararli moddalardan xoli bo‘lishini ta’minlaydi.
+        </p>
+        <p>Sizning sog‘ligingiz va qulayligingiz biz uchun ustuvor!</p>
+        <button class="action-button close-popup">Tushundim</button>
+      </div>
+    </div>
+
+    <div id="orderPopup" class="popup-overlay">
+      <div class="popup-content">
+        <button class="close-popup">&times;</button>
+        <h3>Buyurtma berish</h3>
+        <p>
+          Siz <span id="orderedProductName"></span> mahsulotini buyurtma
+          qilmoqchisiz.
+        </p>
+        <form id="orderForm">
+          <label for="userName">Ismingiz:</label><br />
+          <input
+            type="text"
+            id="userName"
+            name="userName"
+            required
+          /><br /><br />
+          <label for="userPhone">Telefon raqamingiz:</label><br />
+          <input
+            type="tel"
+            id="userPhone"
+            name="userPhone"
+            pattern="[0-9]{9,}"
+            required
+          /><br /><br />
+          <label for="userAddress">Manzilingiz:</label><br />
+          <textarea
+            id="userAddress"
+            name="userAddress"
+            rows="3"
+            required
+          ></textarea
+          ><br /><br />
+          <label for="userQuantity">Miqdori:</label><br />
+          <input
+            type="number"
+            id="userQuantity"
+            name="userQuantity"
+            value="1"
+            min="1"
+            required
+          /><br /><br />
+          <button type="submit" class="action-button">
+            Buyurtmani tasdiqlash
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+    <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
+  </body>
+</html>

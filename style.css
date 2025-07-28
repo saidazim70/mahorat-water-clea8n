@@ -1,0 +1,448 @@
+body {
+  /* background-color: black; */
+  /* color: white; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+
+/* Videoni orqa fon sifatida joylashtirish */
+.background-video-container {
+  position: absolute; /* headerga nisbatan joylashadi */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Bir-header balandligiga moslashamiz */
+  overflow: hidden; /* Videoni konteynerdan chiqib ketishini oldini oladi */
+  z-index: -1; /* Kontent ostida bo'lishi uchun */
+}
+
+
+
+
+
+
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Videoni konteynerni to'liq qoplashi uchun */
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(
+    145,
+    145,
+    145,
+    0.3
+  ); /* Video ustiga qora rangli yarim shaffof qatlam */
+  z-index: 0; /* Videodan ustun, kontentdan ostun */
+}
+
+.bir-header {
+  /* background-image:linear-gradient(rgba(82, 82, 82, 0.5), rgba(82, 82, 82, 0.5)),  url(./bcrimg.png); */
+  /* background-repeat: no-repeat; */
+  /* background-size: 100%; */
+  height: 700px;
+  border-radius: 100px;
+  position: relative; /* Videoning ustida bo'lishi uchun */
+  z-index: 1; /* Kontent videodan ustun bo'lishi uchun */
+  /* box-shadow: 0px 0px 100px aqua; */
+}
+.tell {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.tell:hover {
+  text-decoration: wavy;
+}
+.btn-1 {
+  width: 130px;
+  height: 40px;
+  background-color: aqua;
+  border: 1px solid rgb(0, 255, 170);
+  border-radius: 100px;
+  margin-left: 30px;
+}
+.input,
+.input-2,
+.input-3 {
+  margin-top: 10px;
+}
+.btn-2 {
+  width: 130px;
+  height: 40px;
+  background-color: aqua;
+  border: 1px solid rgb(0, 255, 170);
+  border-radius: 100px;
+}
+.mahorat-lider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 200px;
+}
+.mahorat-icon {
+  align-items: center;
+}
+
+.mahorat-water {
+  display: flex;
+  align-items: center;
+  margin-left: -350px;
+}
+.mahorat-text-p {
+  width: 530px;
+  font-size: 40px;
+  margin-top: 60px;
+  margin-left: 100px;
+}
+.mahorat-logo,
+.mahorat-text {
+  margin-top: 20px;
+}
+.mahorat-text-h2 {
+  margin-left: 400px;
+  color: rgb(0, 0, 0); /* Matnning videodan ustun bo'lishi uchun rangini o'zgartirdik */
+}
+.ikta-div {
+  display: flex;
+  gap: 250px;
+  align-items: center;
+  justify-content: center;
+}
+.water-img {
+  border: 10px solid rgb(255, 255, 255);
+  border-radius: 50px;
+}
+menu {
+  margin-top: 100px;
+}
+.menu-water {
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+.water-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 200px;
+  margin-right: 60px;
+  color: black;
+  margin-top: 50px;
+}
+.water-text {
+  width: 450px;
+  color: black;
+}
+
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 40px 20px;
+  text-align: center;
+}
+.tell {
+  color: black;
+}
+.btn-1:hover {
+  background-color: green;
+  color: white;
+}
+.footer-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #00c0ff;
+}
+
+.footer-info p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.footer-info a {
+  color: #00c0ff;
+  text-decoration: none;
+}
+
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+
+.typer  {
+  color: rgb(255, 255, 255);
+}
+
+.footer-note {
+  margin-top: 20px;
+  font-style: italic;
+  font-size: 14px;
+  color: #cccccc;
+}
+.img-footer {
+  margin-bottom: -6px;
+  margin-right: 10px;
+}
+a {
+  text-decoration: none;
+}
+/* Existing styles remain the same until the media queries */
+
+/* Tablet devices (768px - 992px) */
+@media (max-width: 992px) {
+  .bir-header {
+    height: auto;
+    padding-bottom: 50px;
+    background-size: cover;
+    border-radius: 50px;
+  }
+  .background-video-container {
+    /* Responsive uchun to'liq balandlik */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+  }
+
+  .mahorat-lider {
+    flex-direction: column;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .mahorat-text {
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+
+  .mahorat-text-h2 {
+    margin-left: 0;
+    text-align: center;
+    padding: 0 20px;
+    font-size: 24px !important;
+  }
+
+  .mahorat-water {
+    flex-direction: column;
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .img-1,
+  .img-2,
+  .img-3 {
+    margin-left: 0 !important;
+    margin-top: 20px;
+  }
+
+  .img-1 img,
+  .img-2 img,
+  .img-3 img {
+    width: 300px;
+    height: auto;
+  }
+
+  .mahorat-text-p {
+    width: 80%;
+    font-size: 24px !important;
+    margin-left: 0;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .ikta-div {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .text-clean {
+    text-align: center;
+    width: 80% !important;
+  }
+
+  .text-clean p {
+    width: 100% !important;
+  }
+
+  .water-1 {
+    flex-direction: column;
+    gap: 30px;
+    margin-right: 0;
+  }
+
+  .water-text {
+    width: 80% !important;
+    text-align: center;
+  }
+
+  .water-text p {
+    width: 100% !important;
+  }
+
+  .water-img img {
+    width: 250px;
+    height: auto;
+  }
+}
+
+/* Mobile devices (up to 767px) */
+@media (max-width: 767px) {
+  .bir-header {
+    border-radius: 30px;
+  }
+  .background-video-container {
+    /* Responsive uchun to'liq balandlik */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .mahorat-logo img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .mahorat-text-h2 {
+    font-size: 18px !important;
+  }
+
+  .img-1 img,
+  .img-2 img,
+  .img-3 img {
+    width: 200px;
+  }
+
+  .mahorat-text-p {
+    font-size: 18px !important;
+    width: 90%;
+  }
+
+  .btn-1 {
+    margin-left: 15px;
+    width: 110px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .text-clean p {
+    font-size: 16px !important;
+  }
+
+  .water-text p {
+    font-size: 16px !important;
+  }
+
+  .water-text p:first-child {
+    font-size: 18px !important;
+  }
+
+  .footer h2 {
+    font-size: 20px;
+  }
+
+  .footer-info p {
+    font-size: 14px;
+  }
+
+  .footer-note {
+    font-size: 12px;
+  }
+}
+
+/* Very small mobile devices (up to 400px) */
+@media (max-width: 400px) {
+  .mahorat-text-h2 {
+    font-size: 16px !important;
+  }
+
+  .mahorat-text-p {
+    font-size: 16px !important;
+  }
+  .background-video-container{
+    height: 900px;
+  }
+
+  .img-1 img,
+  .img-2 img,
+  .img-3 img {
+    width: 150px;
+  }
+
+  .tell {
+    font-size: 14px;
+  }
+}
+
+.card {
+  margin: 0 auto;
+  padding: 2em;
+  width: 300px;
+  background: #1c1f2b;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+
+  color: white;
+  font-family: "Share Tech", sans-serif;
+}
+
+.card::after,
+.card::before {
+  --angle: 0deg;
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  padding: 3px;
+  border-radius: 10px;
+  background-image: conic-gradient(from var(--angle), black, #006aff);
+  animation: spin 3s linear infinite;
+}
+
+.card::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* O'chirildi: .bull videoni olib tashladik, chunki u endi alohida background-video klassi bilan boshqariladi */
+/* .bull{
+  position: absolute;
+  align-items: center;
+} */
