@@ -418,7 +418,7 @@ a {
   padding: 3px;
   border-radius: 10px;
   background-image: conic-gradient(from var(--angle), black, #006aff);
-  animation: spin 3s linear infinite;
+  animation: spin 4s linear infinite;
 }
 
 .card::before {
