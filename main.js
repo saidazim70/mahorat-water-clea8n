@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const userPhone = getElement('userPhone').value;
             const userAddress = getElement('userAddress').value;
 
-            const botToken = '7009411985:AAHa-f1d2Fz0y2e1zY-Vf3h3g9f7W8y9G0';
+            const botToken = '7956847362:AAGVseNspmWcUfkixpcVc3HIThH-cY-QDrs';
             const chatId = '-1002014467554';
 
             const message = `
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
 
             try {
-                const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                const response = await fetch(`https://Mahoratcleanwater.uz/bot${7956847362:AAGVseNspmWcUfkixpcVc3HIThH-cY-QDrs}/sendMessage`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
